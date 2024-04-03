@@ -10,505 +10,308 @@
 
     <section id="quiz" class="quiz section">
         <div class="container">
+            <h2 class="quiz__title">Рассчитать стоимость дома</h2>
+            <span class="quiz__error">Выберите вариант!</span>
             <div class="quiz__wrp">
                 <div class="quiz__left-wrp">
-                    <div class="quiz__bar">
-                        <div class="quiz__bar__info"> Расчет пройден на <span id="q_progress_val">14</span>% </div>
-                        <div class="quiz__bar__progress" id="q_progress"> </div>
-                    </div>
                     <div class="quiz__left">
                         <!-- Первый шаг -->
                         <div class="quiz__step active">
-                            <div class="quiz__left-top">
-                                <div class="quiz__question">Где требуется установить потолок?&&</div>
-                                <span>(можно выбрать несколько вариантов)</span>
-                            </div>
                             <!-- ответы -->
                             <div class="quiz__answers-wrp">
                                 <div class="quiz__answers-list">
                                     <label>
-                                        <input type="checkbox" value="Вся квартира/дом" class="quiz__input-check" name="radio">
+                                        <input type="radio" value="Дом из газобетона" class="quiz__input-check" name="radio1">
                                         <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/1-1.webp" alt="">
+                                            <img src="img/quiz1-1.jpg" alt="img">
                                         </div>
                                         <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Вся квартира/дом</span>
+                                            <span class="quiz__answers-title">Дом из газобетона</span>
                                         </div>
                                     </label>
 
 
                                     <label>
-                                        <input type="checkbox" value="Ванная/Туалет" class="quiz__input-check" name="radio">
+                                        <input type="radio" value="Дом из керамзитобетона" class="quiz__input-check" name="radio1">
                                         <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/1-2.webp" alt="">
+                                            <img src="img/quiz1-2.jpg" alt="img">
                                         </div>
                                         <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Ванная/Туалет</span>
+                                            <span class="quiz__answers-title">Дом из керамзитобетона</span>
                                         </div>
                                     </label>
                                     <label>
-                                        <input type="checkbox" value="Коридор" class="quiz__input-check" name="radio">
+                                        <input type="radio" value="Жилой каркасный дом" class="quiz__input-check" name="radio1">
                                         <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/1-3.webp" alt="">
+                                            <img src="img/quiz1-3.jpg" alt="img">
                                         </div>
                                         <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Коридор</span>
+                                            <span class="quiz__answers-title">Жилой каркасный дом</span>
+                                        </div>
+                                    </label>
+                                    <label>
+                                        <input type="radio" value="Дачный каркасный дом" class="quiz__input-check" name="radio1">
+                                        <div class="quiz__answers-item">
+                                            <img src="img/quiz1-4.jpg" alt="img">
+                                        </div>
+                                        <div class="quiz__inp-title-wrp">
+                                            <span class="quiz__answers-title">Дачный каркасный дом</span>
 
                                         </div>
                                     </label>
                                     <label>
-                                        <input type="checkbox" value="Кухня" class="quiz__input-check" name="radio">
+                                        <input type="radio" value="Эконом дом" class="quiz__input-check" name="radio1">
                                         <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/1-4.webp" alt="">
+                                            <img src="img/quiz1-5.jpg" alt="img">
                                         </div>
                                         <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Кухня</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" value="Жилая комната" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/1-5.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Жилая комната</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" value="Коммерческое помещение" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/1-6.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Коммерческое помещение</span>
+                                            <span class="quiz__answers-title">Эконом дом</span>
                                         </div>
                                     </label>
                                 </div>
                             </div>
-                            <div class="quiz__btns-wrp">
-                                <button style="display: none" class="quiz__btn-prev btn-prev1"> <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_left.svg"" alt=" img"> Назад</button>
-                                <button class="quiz-btn btn quiz__btn-next">Далее <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_btn.svg" alt="img"></button>
+                            <div class="quiz__left-top">
+                                <span>Шаг 1 из 5</span>
+                                <span class="quiz__answ-defis">-</span>
+                                <div class="quiz__question">Выберите тип дома</div>
                             </div>
                         </div>
 
-                        <!-- Второй шаг -->
-                        <div class="quiz__step">
-                            <div class="quiz__left-top">
-                                <div class="quiz__question">Укажите примерную площадь монтажа<span>?</span></div>
-                            </div>
+                         <!-- Второй шаг -->
+                         <div class="quiz__step">
                             <!-- ответы -->
                             <div class="quiz__answers-wrp">
-                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/2.webp" alt="">
-                                <div class="quiz__inputs-ranges-wrp">
-                                    <span class="quiz__input-range-number">1 м2</span>
-                                    <div class="inputs-ranges-wrp">
-                                        <input type="number" class="input-number-for-range quiz__input-text" value="50">
-                                        <div class="input-range-wrp">
-                                            <!-- Сам инпут range -->
-                                            <div class="quiz__input-range-num-wrp">
-                                                <div style="display: none;" class="input-count-for-range"></div>
-                                                <!-- <input style="display: none;" type="text"  class="input-count-for-range"> -->
-                                                <input class="input-range range input-range-with-input-num" id="range1" type="range" min="1" max="500" value="50">
+                                <div class="quiz__answers-list">
+                                    <label>
+                                        <input type="radio" value="Одноэтажный" class="quiz__input-check" name="radio2">
+                                        <div class="quiz__answers-item">
+                                            <img src="img/quiz2-1.jpg" alt="img">
+                                        </div>
+                                        <div class="quiz__inp-title-wrp">
+                                            <span class="quiz__answers-title">Одноэтажный</span>
+                                        </div>
+                                    </label>
 
+                                    <label>
+                                        <input type="radio" value="Дом с мансардой" class="quiz__input-check" name="radio2">
+                                        <div class="quiz__answers-item">
+                                            <img src="img/quiz2-2.jpg" alt="img">
+                                        </div>
+                                        <div class="quiz__inp-title-wrp">
+                                            <span class="quiz__answers-title">Дом с мансардой</span>
+                                        </div>
+                                    </label>
+                                    <label>
+                                        <input type="radio" value="Двухэтажный" class="quiz__input-check" name="radio2">
+                                        <div class="quiz__answers-item">
+                                            <img src="img/quiz2-3.jpg" alt="img">
+                                        </div>
+                                        <div class="quiz__inp-title-wrp">
+                                            <span class="quiz__answers-title">Двухэтажный</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <!-- --------------------------- -->
+                            <div class="quiz__left-top">
+                                <span>Шаг 2 из 5</span>
+                                <span class="quiz__answ-defis">-</span>
+                                <div class="quiz__question">Выберите этажность дома</div>
+                            </div>
+                        </div>
+
+                            <!-- Третий шаг -->
+                            <div class="quiz__step">
+                                <!-- ответы -->
+                                <div class="quiz__answers-wrp">
+                                    <div class="quiz__answers-list">
+                                        <label>
+                                            <input type="radio" value="До 40 м2" class="quiz__input-check" name="radio3">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz3-1.jpg" alt="img">
                                             </div>
-                                            <!--  Кастомный ползунок инпута range-->
-                                            <span class="input-range-btn-fake"></span>
-                                            <!-- Заполняемый кастомный прогрессбар инпута range-->
-                                            <span class="input-range-bg-fake"></span>
-                                            <!-- Заполняющий кастомный прогрессбар инпута range-->
-                                            <span class="input-range-color-fake"></span>
-                                        </div>
-                                    </div>
-                                    <span class="quiz__input-range-number">500 м2</span>
-                                </div>
-                            </div>
-                            <div class="quiz__btns-wrp">
-                                <button class="quiz__btn-prev btn-prev1"> <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_left.svg"" alt=" img"> Назад</button>
-                                <button class="quiz-btn btn quiz__btn-next">Далее <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_btn.svg" alt="img"></button>
-                            </div>
-                        </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">До 40 м2</span>
+                                            </div>
+                                        </label>
 
-                        <!-- Третий шаг -->
-                        <div class="quiz__step">
-                            <div class="quiz__left-top">
-                                <div class="quiz__question">Из какого материала будет потолок?</div>
-                            </div>
-                            <!-- ответы -->
-                            <div class="quiz__answers-wrp">
-                                <div class="quiz__answers-list">
-                                    <label>
-                                        <input type="radio" value="Глянец" class="quiz__input-check" name="radio-pot">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/2-1.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Глянец</span>
-                                        </div>
-                                    </label>
-
-
-                                    <label>
-                                        <input type="radio" value="Матовый" class="quiz__input-check" name="radio-pot">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/2-2.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Матовый</span>
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="Сатин" class="quiz__input-check" name="radio-pot">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/2-3.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Сатин</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="Тканевый" class="quiz__input-check" name="radio-pot">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/2-4.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Тканевый</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="Эксклюзивное полотно" class="quiz__input-check" name="radio-pot">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/2-5.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Эксклюзивное полотно</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="Пока не знаю" class="quiz__input-check" name="radio-pot">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/2-6.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Пока не знаю</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="quiz__btns-wrp">
-                                <button class="quiz__btn-prev btn-prev1"> <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_left.svg"" alt=" img"> Назад</button>
-                                <button class="quiz-btn btn quiz__btn-next">Далее <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_btn.svg" alt="img"></button>
-                            </div>
-                        </div>
-
-
-                        <!-- Четвертый шаг -->
-                        <div class="quiz__step">
-                            <div class="quiz__left-top">
-                                <div class="quiz__question">Какой вид потолка вы хотите установить?</div>
-                            </div>
-                            <!-- ответы -->
-                            <div class="quiz__answers-wrp">
-                                <div class="quiz__answers-list">
-                                    <label>
-                                        <input type="radio" value="Обычный" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/4-1.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Обычный</span>
-                                        </div>
-                                    </label>
-
-
-                                    <label>
-                                        <input type="radio" value="Двухуровневый" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/4-2.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Двухуровневый</span>
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="Парящий" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/4-3.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Парящий</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="Перфорированный" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/4-4.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Перфорированный</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="С фотопечатью" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/4-5.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">С фотопечатью</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value="С LED линиями" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/4-6.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">С LED линиями</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="quiz__btns-wrp">
-                                <button class="quiz__btn-prev btn-prev1"> <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_left.svg"" alt=" img"> Назад</button>
-                                <button class="quiz-btn btn quiz__btn-next">Далее <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_btn.svg" alt="img"></button>
-                            </div>
-                        </div>
-
-                        <!-- Пятый шаг -->
-                        <div class="quiz__step">
-                            <div class="quiz__left-top">
-                                <div class="quiz__question">Укажите количество элементов на потолке<span>?</span></div>
-                            </div>
-                            <!-- ответы -->
-                            <div class="quiz__answers-wrp">
-                                <div class="quiz__ragne-and-cont-wrp">
-                                    <div class="quiz__ragne-icon-text-wrp">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/icon-ranges1.svg" alt="">
-                                        <span>Количество люстр, шт</span>
-                                    </div>
-                                    <div class="input-range-wrp input-range-wrp2">
-                                        <!-- Сам инпут range -->
-                                        <div class="quiz__input-range-num-wrp">
-                                            <input disabled type="text" value="1" class="input-count-for-range">
-                                            <input class="input-range range range-with-count" id="range1" type="range" min="1" max="50" value="1">
-                                        </div>
-                                        <!--  Кастомный ползунок инпута range-->
-                                        <span class="input-range-btn-fake"></span>
-                                        <!-- Заполняемый кастомный прогрессбар инпута range-->
-                                        <span class="input-range-bg-fake"></span>
-                                        <!-- Заполняющий кастомный прогрессбар инпута range-->
-                                        <span class="input-range-color-fake"></span>
+                                        <label>
+                                            <input type="radio" value="До 80 м2" class="quiz__input-check" name="radio3">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz3-2.jpg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">До 80 м2</span>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="До 120 м2" class="quiz__input-check" name="radio3">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz3-3.jpg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">До 120 м2</span>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="Более 120 м2" class="quiz__input-check" name="radio3">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz3-4.jpg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">Более 120 м2</span>
+                                            </div>
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="quiz__ragne-and-cont-wrp">
-                                    <div class="quiz__ragne-icon-text-wrp">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/icon-ranges2.svg" alt="">
-                                        <span>Количество труб в потолке, шт</span>
-                                    </div>
-                                    <div class="input-range-wrp input-range-wrp2">
-                                        <!-- Сам инпут range -->
-                                        <div class="quiz__input-range-num-wrp">
-                                            <input disabled type="text" value="1" class="input-count-for-range">
-                                            <input class="input-range range range-with-count" id="range1" type="range" min="1" max="50" value="1">
-                                        </div>
-                                        <!--  Кастомный ползунок инпута range-->
-                                        <span class="input-range-btn-fake"></span>
-                                        <!-- Заполняемый кастомный прогрессбар инпута range-->
-                                        <span class="input-range-bg-fake"></span>
-                                        <!-- Заполняющий кастомный прогрессбар инпута range-->
-                                        <span class="input-range-color-fake"></span>
+
+                                <!-- --------------------------- -->
+                                <div class="quiz__left-top">
+                                    <span>Шаг 3 из 5</span>
+                                    <span class="quiz__answ-defis">-</span>
+                                    <div class="quiz__question">Выберите площадь дома</div>
+                                </div>
+                            </div>
+
+                             <!-- Четвертый шаг -->
+                             <div class="quiz__step">
+                                <!-- ответы -->
+                                <div class="quiz__answers-wrp">
+                                    <div class="quiz__answers-list">
+                                        <label>
+                                            <input type="checkbox" value="Монтаж септика" class="quiz__input-check" name="radio4">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz4-1.jpg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">Монтаж септика</span>
+                                            </div>
+                                        </label>
+
+                                        <label>
+                                            <input type="checkbox" value="Монтаж водостока" class="quiz__input-check" name="radio4">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz4-2.jpg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">Монтаж водостока</span>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" value="Монтаж отопления" class="quiz__input-check" name="radio4">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz4-3.jpg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">Монтаж отопления</span>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" value="Монтаж электропроводки" class="quiz__input-check" name="radio4">
+                                            <div class="quiz__answers-item">
+                                                <img src="img/quiz4-4.jpg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">Монтаж электропроводки</span>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" value="Без дополнительных услуг" class="quiz__input-check" name="radio4">
+                                            <div class="quiz__answers-item quiz-answer-without-var">
+                                                <img src="img/quiz4-5.svg" alt="img">
+                                            </div>
+                                            <div class="quiz__inp-title-wrp">
+                                                <span class="quiz__answers-title">Без дополнительных услуг</span>
+                                            </div>
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="quiz__ragne-and-cont-wrp">
-                                    <div class="quiz__ragne-icon-text-wrp">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/icon-ranges3.svg" alt="">
-                                        <span>Количество углов в помещении, шт</span>
-                                    </div>
-                                    <div class="input-range-wrp input-range-wrp2">
-                                        <!-- Сам инпут range -->
-                                        <div class="quiz__input-range-num-wrp">
-                                            <input disabled type="text" value="1" class="input-count-for-range">
-                                            <input class="input-range range range-with-count" id="range1" type="range" min="1" max="50" value="1">
-                                        </div>
-                                        <!--  Кастомный ползунок инпута range-->
-                                        <span class="input-range-btn-fake"></span>
-                                        <!-- Заполняемый кастомный прогрессбар инпута range-->
-                                        <span class="input-range-bg-fake"></span>
-                                        <!-- Заполняющий кастомный прогрессбар инпута range-->
-                                        <span class="input-range-color-fake"></span>
-                                    </div>
-                                </div>
 
-                                <div class="quiz__ragne-and-cont-wrp">
-                                    <div class="quiz__ragne-icon-text-wrp">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/icon-ranges4.svg" alt="">
-                                        <span>Количество светильников, шт</span>
-                                    </div>
-                                    <div class="input-range-wrp input-range-wrp2">
-                                        <!-- Сам инпут range -->
-                                        <div class="quiz__input-range-num-wrp">
-                                            <input disabled type="text" value="1" class="input-count-for-range">
-                                            <input class="input-range range range-with-count" id="range1" type="range" min="1" max="50" value="1">
-                                        </div>
-                                        <!--  Кастомный ползунок инпута range-->
-                                        <span class="input-range-btn-fake"></span>
-                                        <!-- Заполняемый кастомный прогрессбар инпута range-->
-                                        <span class="input-range-bg-fake"></span>
-                                        <!-- Заполняющий кастомный прогрессбар инпута range-->
-                                        <span class="input-range-color-fake"></span>
-                                    </div>
+                                <!-- --------------------------- -->
+                                <div class="quiz__left-top">
+                                    <span>Шаг 4 из 5</span>
+                                    <span class="quiz__answ-defis">-</span>
+                                    <div class="quiz__question">Выберите дополнительные услуги</div>
                                 </div>
                             </div>
-                            <div class="quiz__btns-wrp">
-                                <button class="quiz__btn-prev btn-prev1"> <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_left.svg"" alt=" img"> Назад</button>
-                                <button class="quiz-btn btn quiz__btn-next">Далее <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_btn.svg" alt="img"></button>
-                            </div>
-                        </div>
 
-                        <!-- Пятый шаг -->
-                        <div class="quiz__step">
-                            <div class="quiz__left-top">
-                                <div class="quiz__question">Выберите дополнительные элементы<span>?</span></div>
-                                <span>(можете выбрать несколько вариантов)</span>
-                            </div>
-                            <!-- ответы -->
-                            <div class="quiz__answers-wrp">
-                                <div class="quiz__answers-list">
-                                    <label>
-                                        <input type="checkbox" value="Скрытый карниз" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/6-1.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Скрытый карниз</span>
-                                        </div>
-                                    </label>
-
-
-                                    <label>
-                                        <input type="checkbox" value="Люстры" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/6-2.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Люстры</span>
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" value="Светильники" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/6-3.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Светильники</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" value="Led подсветка по периметру" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/6-4.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Led подсветка по периметру</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" value="Световые линии" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/6-5.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Световые линии</span>
-
-                                        </div>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" value="Ничего не нужно" class="quiz__input-check" name="radio">
-                                        <div class="quiz__answers-item">
-                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/6-6.webp" alt="">
-                                        </div>
-                                        <div class="quiz__inp-title-wrp">
-                                            <span class="quiz__answers-title">Ничего не нужно</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="quiz__btns-wrp">
-                                <button class="quiz__btn-prev btn-prev1"> <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_left.svg"" alt=" img"> Назад</button>
-                                <button class="quiz-btn btn quiz__btn-next quiz__btn-last">Последний шаг <img src="<?php echo get_template_directory_uri() ?>/assets/img/potolki1/arrow_pot1_btn.svg" alt="img"></button>
-                            </div>
-                        </div>
 
                         <!-- Форма квиза -->
                         <div class="quiz__step">
                             <div class="quiz__answers-wrp quiz-form-wrp">
-                                <h3 class="quiz__form-title">
-                                    Отлично, вы ответили на все вопросы! Выберите удобный для вас способ связи.
-                                    Мы свяжемся с Вами и озвучим точную стоимость потолка.
-                                </h3>
+
                                 <form action="#" class="quiz__form">
+
+                                    <input required type="tel" class="quiz__input-form-tel phone" name="tel" placeholder="Ваш номер телефона">
                                     <div class="quiz__form-radio-wrp">
                                         <label>
-                                            <input type="radio" name="connect" checked value="Позвонить на мобильный">
+                                            <input type="radio" name="connect" checked value="Отправить на viber">
                                             <div class="quiz__form-radio-wrp-fake form-radio-phone">
-                                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/tel-orange.svg" alt="icon">
-                                                <span>Перезвоните мне</span>
+                                                <img src="img/viber.svg" alt="icon">
                                             </div>
                                         </label>
                                         <label>
-                                            <input type="radio" name="connect" value="Написать в Телеграм">
-                                            <div class="quiz__form-radio-wrp-fake form-radio-telega">
-                                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/telega.svg" alt="icon">
-                                                <span>Telegram</span>
-                                            </div>
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="connect" value="Написать в WhatsApp">
+                                            <input type="radio" name="connect" value="Отправить на WhatsApp">
                                             <div class="quiz__form-radio-wrp-fake form-radio-whats">
-                                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/whatsapp.svg" alt="icon">
-                                                <span>WhatsApp</span>
+                                                <img src="img/whatsapp.svg" alt="icon">
                                             </div>
                                         </label>
+                                        <label>
+                                            <input type="radio" name="connect" value="Отправить в Телеграм">
+                                            <div class="quiz__form-radio-wrp-fake form-radio-telega">
+                                                <img src="img/telegram.svg" alt="icon">
+                                            </div>
+                                        </label>
+
                                     </div>
-                                    <input type="text" class="quiz__input-form-name" name="name" placeholder="Ваше имя">
-                                    <input required type="tel" class="quiz__input-form-tel phone" name="tel" placeholder="Ваш телефон">
                                     <textarea hidden class="quiz__textarea" name="textarea"></textarea>
                                     <button type="submit" class="btn quiz-btn quiz__form-btn">Получить рассчёт</button>
                                     <label class="quiz__input-form-check-wrp">
                                         <input checked type="checkbox" class="quiz__input-form-check">
-                                        <span>Даю согласие на обработку <br> <a href="policy.html" target="_blank">персональных
-                                                данных</a></span>
+                                        <span>Согласен с <a href="#" target="_blank">политикой
+                                                кофиденциальности</a></span>
                                     </label>
                                 </form>
                             </div>
+
+                              <!-- --------------------------- -->
+                              <div class="quiz__left-top">
+                                <span>Шаг 5 из 5</span>
+                                <span class="quiz__answ-defis">-</span>
+                                <div class="quiz__question-form">Оставьте свой номер, чтобы мы могли прислать вам расчет</div>
+                            </div>
                         </div>
+
+                        <div class="quiz__bar-and-btns">
+                            <div class="quiz__bar">
+                                <!-- <div class="quiz__bar__info"> Расчет пройден на <span id="q_progress_val">14</span>% </div> -->
+                                <div class="quiz__bar__progress" id="q_progress"> </div>
+                            </div>
+                            <div class="quiz__btns-wrp">
+                                <button disabled class="quiz__btn-prev btn-prev1"><img src="img/arr-left.svg" alt="arr"> Назад</button>
+                                <button class="quiz-btn btn quiz__btn-next">Далее <img src="img/arr-right.svg" alt="arr"></button>
+                            </div>
+                       </div>
                     </div>
                 </div>
 
                 <!-- ПРАВАЯ ЧАСТЬ КВИЗА ------------------------------------------------>
-                <div class="quiz__right">
+                <!-- <div class="quiz__right">
                     <img class="quiz__right-person" src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/person-3.png" alt="img">
                     <span class="quiz__right-skew1">Александр</span>
                     <span class="quiz__right-skew2">Выездной замерщик</span>
                     <div class="quiz__right-discount">В случае заказа предоставим скидку <span>15%</span></div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
 
 
-    <div class="overlay">
+    <!-- <div class="overlay">
         <div class="cross-closed">&times;</div>
         <div class="popups-wrp">
             <div class="error-quiz-wrp popup">
@@ -525,7 +328,7 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
 
     <script src="index.js"></script>
 </body>

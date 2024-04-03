@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', () => {
 const body = document.querySelector('body');
 const quizStep = document.querySelectorAll('.quiz__step');
 const quizStepNumEnd = document.querySelectorAll('.quiz__step-num-end');
-const quizBtnPrev = document.querySelectorAll('.quiz__btn-prev');
+const quizBtnPrev = document.querySelector('.quiz__btn-prev');
+const quizBtnNext = document.querySelector('.quiz__btn-next');
 const quizBtnLast = document.querySelector('.quiz__btn-last');
 const quizTextarea = document.querySelector('.quiz__textarea');
 const overlay = document.querySelector('.overlay');
@@ -14,6 +15,7 @@ const crossClosed = document.querySelector('.cross-closed');
 const errorQuizWrp = document.querySelector('.error-quiz-wrp');
 const errorFormWrp = document.querySelector('.error-form-wrp');
 const formQuizSucsess = document.querySelector('.form-quiz-sucsess ');
+const quizError = document.querySelector('.quiz__error');
 
 
 
@@ -27,143 +29,153 @@ let indicator = false;
 
 
 //ФУНКЦИИ ПОЯВЛЕНИЯ И СКРЫТИЯ OVERLAY ДЛЯ ПОПАПОВ===========================
-function showOverlay() {
-  overlay.classList.add('active');
-  body.classList.add('active');
-  body.style.paddingRight = srollWidth + 'px';
-  errorQuizWrp.classList.add('anim');
-}
+// function showOverlay() {
+//   overlay.classList.add('active');
+//   body.classList.add('active');
+//   body.style.paddingRight = srollWidth + 'px';
+//   errorQuizWrp.classList.add('anim');
+// }
 
-crossClosed.addEventListener('click', () => {
-  hideOverlay();
-})
+// crossClosed.addEventListener('click', () => {
+//   hideOverlay();
+// })
 
-overlay.addEventListener('click', (e) => {
-  if(!e.target.closest('.popup')) {
-    hideOverlay();
-  }
-})
+// overlay.addEventListener('click', (e) => {
+//   if(!e.target.closest('.popup')) {
+//     hideOverlay();
+//   }
+// })
 
-function hideOverlay() {
-  overlay.classList.remove('active');
-  body.classList.remove('active');
-  popups.forEach(item => {
-    item.classList.remove('active');
-  })
-  body.style.paddingRight = '';
-  errorQuizWrp.classList.remove('anim');
-  errorFormWrp.classList.remove('anim');
-  errorQuizWrp.classList.remove('active');
-  errorFormWrp.classList.remove('active');
-  formQuizSucsess.classList.remove('active');
-//   formSucsess.classList.remove('active');
-}
+// function hideOverlay() {
+//   overlay.classList.remove('active');
+//   body.classList.remove('active');
+//   popups.forEach(item => {
+//     item.classList.remove('active');
+//   })
+//   body.style.paddingRight = '';
+//   errorQuizWrp.classList.remove('anim');
+//   errorFormWrp.classList.remove('anim');
+//   errorQuizWrp.classList.remove('active');
+//   errorFormWrp.classList.remove('active');
+//   formQuizSucsess.classList.remove('active');
+// //   formSucsess.classList.remove('active');
+// }
 
 
 
 // ДЛЯ ТЕСТОВ (СКРЫТИЕ-ПОКАЗ НУЖНОГО ШАГА)
-// quizStep[6].classList.add('active');
+// quizStep[4].classList.add('active');
 // quizStep[0].classList.remove('active');
 
 // PROGRESS BAR=============================================
+
 const quizBarProgress = document.querySelector('.quiz__bar__progress');
 const qProgressVal = document.querySelector('#q_progress_val');
 
 let stepQuantity = quizStep.length;
 let procents = Math.trunc(100 / stepQuantity);
-qProgressVal.textContent = procents;
+// qProgressVal.textContent = procents;
 quizBarProgress.style.width = procents + '%';
 
 function multiplyProcents(index) {
-  let endProcents = procents * (index + 2);
-  qProgressVal.textContent = endProcents;
+  let endProcents = procents * (index + 1);
+  // qProgressVal.textContent = endProcents;
   quizBarProgress.style.width = endProcents + '%';
 
-  if(index === (quizStep.length - 2)) {
-    qProgressVal.textContent = 100;
+  if(index === (quizStep.length)) {
+    // qProgressVal.textContent = 100;
     quizBarProgress.style.width = 100 + '%';
   }
 }
 
 
-//СКРЫВАЕМ РАДИОКНОПКУ ТАМ, ГДЕ ЕСТЬ ТЕКСТОВЫЙ ИНПУТ
-const quizAnswersItem = document.querySelectorAll('.quiz__answers-item');
-quizAnswersItem.forEach(item => {
-    if(item.querySelector('.quiz__input-text')) {
-        item.classList.add('active');
-    }
-})
-
 
 // ПЕРЕЛИСТЫВАНИЕ КВИЗА ВПЕРЕД С ПРОВЕРКОЙ НАЛИЧИЕ ВЫБОРА ВАРИАНТА====================
-quizStep.forEach((item, index) => {
+let index = 0;
 
-  item.addEventListener('click', (e) => {
-    if(e.target.closest('.quiz__btn-next')) {
-      const inpCheck = item.querySelectorAll('.quiz__input-check');
 
-      indicator = false;
-      Array.from(inpCheck).find(inpcheck => {
-        if(!inpcheck.checked) {
-          errorQuizWrp.classList.add('active');
-        } else {
-          quizStep[index].classList.remove('active');
-          quizStep[index + 1].classList.add('active');
-          indicator = true;
-          multiplyProcents(index);
-        }
-      })
+quizBtnNext.addEventListener('click', () => {
+  quizBtnPrev.disabled = false;
 
-      if(item.querySelector('input[type="text"') !== null) {
-        if(item.querySelector('input[type="text"').value !== '') {
-          quizStep[index].classList.remove('active');
-          quizStep[index + 1].classList.add('active');
-          indicator = true;
-          multiplyProcents(index);
-        }
-      }
+  if(indicator !== false) {
+    quizStep.forEach(item => {
+      item.classList.remove('active');
+    })
+    index++;
+    quizStep[index].classList.add('active');
+    multiplyProcents(index);
 
-      if(item.querySelector('input[type="number"') !== null) {
-        if(item.querySelector('input[type="number"').value !== '') {
-          quizStep[index].classList.remove('active');
-          quizStep[index + 1].classList.add('active');
-          indicator = true;
-          multiplyProcents(index);
-        }
-      }
-
+    if(index === quizStep.length -  1) {
+      quizBtnNext.disabled = true;
     }
-  })
+
+    if(index === (quizStep.length - 1)) {
+      writeAllData();
+    }
+    quizError.classList.remove('active');
+    indicator = false;
+  } else {
+    quizError.classList.add('active');
+  }
+
 })
+
+  // Удаление надписи "Выберите вариант"
+  const inpCheck = document.querySelectorAll('.quiz__input-check');
+  inpCheck.forEach(item => {
+    item.addEventListener('input', () => {
+      indicator = true;
+      quizError.classList.remove('active');
+    })
+  })
+
+
+
+
 
 // ПЕРЕЛИСТЫВАНИЕ КВИЗА НАЗАД===============================
-quizBtnPrev.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        quizStep[index - 1].classList.add('active');
-        quizStep[index].classList.remove('active');
+
+    quizBtnPrev.addEventListener('click', () => {
+      quizBtnNext.disabled = false;
+        index--;
+        if(index < 0) {
+          index = 0;
+        }
+        if(index === 0) {
+          quizBtnPrev.disabled = true;
+        }
+        quizStep.forEach(item => {
+          item.classList.remove('active');
+        })
+        quizStep[index].classList.add('active');
+
+        multiplyProcents(index);
+
+        indicator = true;
+        quizTextarea.innerHTML = '';
     })
-})
+
 
 // ПОКАЗА ОКНА ОШИБКИ, ЕСЛИ НЕ ВЫБРАН ВАРИАНТ===========================
-quizStep.forEach(item => {
-  item.addEventListener('click', (e) => {
+// quizStep.forEach(item => {
+//   item.addEventListener('click', (e) => {
 
-    if(e.target.closest('.quiz__btn-next')) {
-      if(indicator === false) {
-        showOverlay();
-        errorFormWrp.classList.remove('active');
-      }
-    }
-    if(e.target.closest('.quiz__btn-last')) {
-        if(!indicator === false) {
-            writeAllData();
-            console.log('ok');
-        }
-    }
-  })
+//     if(e.target.closest('.quiz__btn-next')) {
+//       if(indicator === false) {
+//         showOverlay();
+//         errorFormWrp.classList.remove('active');
+//       }
+//     }
+//     if(e.target.closest('.quiz__btn-last')) {
+//         if(!indicator === false) {
+//             writeAllData();
+//             console.log('ok');
+//         }
+//     }
+//   })
 
 
-})
+// })
 
 // ДИНАМИЧЕСКОЕ ДОБАВЛЕНИЕ СЧЕТЧИКА ШАГОВ=====================
 const quizStepNumCurrent = document.querySelectorAll('.quiz__step-num-current');
@@ -192,8 +204,8 @@ function writeAllData() {
         });
         // console.log(JSON.stringify(ans));
         if(quest !== null && ans !== null) {
-            console.log((quest.innerText.replace('?', ': ') ) + (ans.join('').replace(new RegExp('code', 'g'), ', ')).replace(/,\s*$/, ""));
-            quizTextarea.innerHTML += (quest.innerText.replace('?', ': ') ) + (ans.join('').replace(new RegExp('code', 'g'), ', ')).replace(/,\s*$/, "") + '<br>';
+            console.log((quest.innerText) + ': ' + (ans.join('').replace(new RegExp('code', 'g'), ', ')).replace(/,\s*$/, ""));
+            quizTextarea.innerHTML += (`<b>${quest.innerText}</b>`) + ': ' + (ans.join('').replace(new RegExp('code', 'g'), ', ')).replace(/,\s*$/, "") + '<br>';
         }
 
     })
@@ -240,8 +252,8 @@ async function formSend(form) {
 
 quizFormBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  errorQuizWrp.classList.remove('active');
-  errorFormWrp.classList.remove('active');
+  // errorQuizWrp.classList.remove('active');
+  // errorFormWrp.classList.remove('active');
   if(quizInputFormTel.value !== '') {
     formSend(quizForm);
   } else {

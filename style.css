@@ -9,6 +9,11 @@ body,html {
   font-family: sans-serif;
 }
 
+input:focus, input:active {
+  outline: none;
+  border: none;
+}
+
 .container {
     width: 1140px;
     margin: 0 auto;
@@ -31,6 +36,11 @@ body,html {
       line-height: 1.3;
       text-align: center;
       font-size: 40px;
+    }
+    @media (max-width: 472px) {
+      .quiz__title {
+        font-size: 30px;
+      }
     }
     .quiz__error {
       color: red;
@@ -65,7 +75,6 @@ body,html {
     }
 
     .quiz__left-wrp {
-      padding: 15px;
       padding-bottom: 20px;
       border-radius: 10px;
       /* box-shadow: 0px 2px 20px 2px rgba(34, 60, 80, 0.09); */
@@ -93,6 +102,17 @@ body,html {
       border-radius: 27.5px;
       background-color: #c6c6c6;
       position: relative;
+    }
+    @media (max-width: 690px) {
+      .quiz__bar-and-btns {
+        flex-direction: column;
+        row-gap: 20px;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+      .quiz__bar {
+        width: 100%;
+      }
     }
     .quiz__bar__info {
       position: absolute;
@@ -200,7 +220,6 @@ body,html {
     .quiz__question, .quiz__question-form  {
       font-size: 18px;
       font-weight: 700;
-      text-align: center;
     }
 
     .quiz__question span {
@@ -269,6 +288,8 @@ body,html {
       display: flex;
       justify-content: center;
       gap: 30px 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
     @media (max-width: 700px) {
       .quiz__answers-list {
@@ -560,15 +581,10 @@ body,html {
 
   /* форма квиза------------------------------- */
     .quiz-form-wrp {
-      padding: 20px;
       border-radius: 18px;
     }
 
-    @media (max-width: 560px) {
-      .quiz-form-wrp {
-        padding: 20px 10px;
-      }
-    }
+
 
     .quiz__form-title {
       text-align: center;
@@ -590,6 +606,8 @@ body,html {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+      margin-top: 20px;
+      position: relative;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
@@ -598,7 +616,6 @@ body,html {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      margin-top: 30px;
     }
 
     .quiz__form-radio-wrp {
@@ -606,13 +623,17 @@ body,html {
       align-items: center;
       gap: 20px;
     }
-    @media (max-width: 605px) {
-      .quiz__form-radio-wrp {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-      }
+
+    .quiz__form-tel-error {
+      color: red;
+      display: none;
+      position: absolute;
+      top: -30px;
     }
+    .quiz__form-tel-error.active {
+      display: block;
+    }
+
 
     .quiz__form-radio-wrp label {
       position: relative;
@@ -639,11 +660,11 @@ body,html {
       cursor: pointer;
       border-radius: 3px;
     }
-    @media (max-width: 605px) {
+    /* @media (max-width: 605px) {
       .quiz__form-radio-wrp-fake {
         width: 100%;
       }
-    }
+    } */
 
     .quiz__form-radio-wrp-fake img {
       width: 100% !important;
@@ -847,137 +868,66 @@ body,html {
       }
     }
 
-
-    /* inputs range */
-    .inputs-ranges-wrp {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .input-range-wrp {
-      width: 100%;
-      display: flex;
-      margin: 0 auto;
-      margin-top: 7px;
-      flex-direction: column;
-      gap: 20px;
-      position: relative;
-      cursor: pointer;
-    }
-    .input-range-wrp2 {
-      /* width: 100%; */
-    }
-    .input-count-for-range {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: absolute;
-      transform: translateX(-12px);
-      top: -22px;
-    }
-  .input-range {
-      position: relative;
-      cursor: pointer;
-      opacity: 0;
-      width: 100%;
-      -webkit-appearance: none;
-      /* Отключаем ситили для родного ползунка */
-      -moz-appearance: none;
-           appearance: none;
-    }
-    /* Задаем свои стили родному ползунку
-      (увеличиваем его, чтобы корректно кликался)*/
-    .input-range-wrp input::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
-
-    .input-range-wrp input::-moz-range-thumb {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
-
-    /* .input-range-wrp input:hover + .input-range-btn-fake {
-      -webkit-transition: background .3s;
-      transition: background .3s;
-      background-color: #a24308;
-    } */
-
-    .input-range-wrp input:active + .input-range-btn-fake::after {
-      opacity: 1;
-    }
-    /* Стили для заполняемого кастомного инпута */
-    .input-range-bg-fake {
-      position: absolute;
+    .leftBtn {
+      width: 46px;
+      height: 230px;
       z-index: 1;
-      height: 10px;
-      width: 100%;
-      background-color: #e8e8e8;
+      position: fixed;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      /* justify-content: center; */
+      gap: 20px;
+      padding: 3px 10px;
       left: 0;
-      top: 15px;
-      pointer-events: none;
-      border-radius: 10px;
-    }
-    /* Стили для заполняющего кастомного инпута */
-    .input-range-color-fake {
-      position: absolute;
-      z-index: 2;
-      height: 10px;
-      background-color: #5094e0;
-      left: 0;
-      top: 15px;
-      pointer-events: none;
-      border-radius: 10px 0 0 10px;
-    }
-    /* Стили для кастомного ползунка */
-    .input-range-btn-fake {
-      position: absolute;
-      z-index: 3;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      left: 0;
-      top: 6px;
-      background-color: #5094e0;
-      border: 7px solid #ffffff;
-      cursor: pointer;
-      pointer-events: none;
-      box-shadow: 0px 2px 20px 2px rgba(34, 60, 80, 0.2);
-      -webkit-transform: translateX(-14px);
-              transform: translateX(-14px);
-    }
-    /* Стили для элемента ползунка,
-    который появляется при активности */
-    /* .input-range-btn-fake::after {
-      content: '';
-      position: absolute;
       top: 50%;
-      left: 50%;
-      width: 25px;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
-      height: 25px;
-      border-radius: 50%;
-      background-color: #d5621a90;
-      opacity: 0;
-      z-index: 3;
-    } */
-    /* .input-range-wrp input:active + .input-range-btn-fake::after {
-      opacity: 1;
-    } */
-
-    .input-number-for-range {
-      border: 1px solid #000;
-      margin-bottom: 10px;
-      display: block;
+      transform: translateY(-50%);
+      background-color: #39B520;
+      border-radius: 0  15px 15px 0;
+      text-decoration: none;
+      color: #fff;
+      overflow: hidden;
+    }
+    .leftBtn::before {
+      content: "";
+      position: absolute;
+      width: 130%;
+      height: 100%;
+      background: linear-gradient(270deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, 0)) no-repeat 1em 0;
+      background-size: 5em 100%;
+      -moz-transform: skewX(60deg);
+      -o-transform: skewX(60deg);
+      -webkit-transform: skewX(60deg);
+      transform: skewX(60deg);
+      -khtml-transform: skewX(60deg);
+      left: 0;
+      top: 0;
+      animation-timing-function: ease-in-out;
+      transition: all .1s;
+      -moz-transition: all .1s;
+      -webkit-transition: all .1s;
+      -o-transition: all .1s;
+      -khtml-transition: all .1s;
+      -ms-transition: all .1s;
+      animation-name: slideme;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes slideme {
+      0% {
+        left: -300px;
+        margin-left: 0;
+    }
+    100% {
+        left: 300px;
+        margin-left: 40px;
+    }
+    }
+    .leftBtn span {
+      transform: rotate(-90deg) translateX(55px);
+      width: 120px;
+    }
+    .leftBtn img {
+      width: 37px;
+      transform: rotate(-90deg) translateX(10px);
     }

@@ -246,7 +246,9 @@
 
                                 <form action="#" class="quiz__form">
 
+                                    <span class="quiz__form-tel-error">Введите номер телефона!</span>
                                     <input required type="tel" class="quiz__input-form-tel phone" name="tel" placeholder="Ваш номер телефона">
+
                                     <div class="quiz__form-radio-wrp">
                                         <label>
                                             <input type="radio" name="connect" checked value="Отправить на viber">
@@ -288,7 +290,6 @@
 
                         <div class="quiz__bar-and-btns">
                             <div class="quiz__bar">
-                                <!-- <div class="quiz__bar__info"> Расчет пройден на <span id="q_progress_val">14</span>% </div> -->
                                 <div class="quiz__bar__progress" id="q_progress"> </div>
                             </div>
                             <div class="quiz__btns-wrp">
@@ -298,37 +299,13 @@
                        </div>
                     </div>
                 </div>
-
-                <!-- ПРАВАЯ ЧАСТЬ КВИЗА ------------------------------------------------>
-                <!-- <div class="quiz__right">
-                    <img class="quiz__right-person" src="<?php echo get_template_directory_uri() ?>/assets/img/quiz/person-3.png" alt="img">
-                    <span class="quiz__right-skew1">Александр</span>
-                    <span class="quiz__right-skew2">Выездной замерщик</span>
-                    <div class="quiz__right-discount">В случае заказа предоставим скидку <span>15%</span></div>
-                </div> -->
             </div>
         </div>
     </section>
 
+    <a href="#" class="leftBtn"> <img src="img/btn-left-icon.svg" alt="icon"> <span>Рассчет онлайн</span></a>
 
-    <!-- <div class="overlay">
-        <div class="cross-closed">&times;</div>
-        <div class="popups-wrp">
-            <div class="error-quiz-wrp popup">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/error-icon.svg" alt="ошибка">
-                <span>Выберите вариант!</span>
-            </div>
-            <div class="error-form-wrp popup">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/error-icon.svg" alt="ошибка">
-                <span>Заполните поля!</span>
-            </div>
-            <div class="form-quiz-sucsess popup">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/sucsess-icon.svg" alt="ошибка">
-                <span>Спасибо! Мы свяжемся с Вами в течение 30 мин. <br></span>
-            </div>
 
-        </div>
-    </div> -->
 
     <script src="index.js"></script>
 </body>
